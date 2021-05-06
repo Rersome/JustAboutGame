@@ -6,8 +6,8 @@ public class Game extends Canvas implements  Runnable {
 
     private boolean isRunning = false;
     private Thread thread;
-    private final Handler handler;
-    private final Camera camera;
+    private Handler handler;
+    private Camera camera;
 
     private BufferedImage level = null;
 
@@ -130,6 +130,8 @@ public class Game extends Canvas implements  Runnable {
                     handler.addObject(new Block(xx*32, yy*32, ID.Block));
                 if(blue == 255)
                     handler.addObject(new Player(xx*32, yy*32, ID.Player, handler));
+                if(green == 255)
+                    handler.addObject(new Enemy(xx*32, yy*32, ID.Enemy, handler));
             }
         }
     }
