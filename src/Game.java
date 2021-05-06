@@ -6,18 +6,19 @@ public class Game extends Canvas implements  Runnable {
 
     private boolean isRunning = false;
     private Thread thread;
-    private Handler handler;
-    private Camera camera;
+    private final Handler handler;
+    private final Camera camera;
 
     private BufferedImage level = null;
 
     public Game(){
-        new Window(1000, 563, "Shooter Game", this);
+        new Window(1280, 720, "Shooter Game", this);
         start();
 
         handler = new Handler();
         camera = new Camera(0, 0);
         this.addKeyListener(new KeyInput(handler));
+        this.addMouseListener(new MouseInput(handler, camera));
 
         BufferedImageLoader loader = new BufferedImageLoader();
         level = loader.loadImage("/world.png");
@@ -98,7 +99,7 @@ public class Game extends Canvas implements  Runnable {
         /////////////////////////////////
 
         g.setColor(Color.red);
-        g.fillRect(0, 0, 1000, 563);
+        g.fillRect(0, 0, 1280, 720);
 
         g2d.translate(-camera.getX(), -camera.getY());
 
