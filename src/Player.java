@@ -5,8 +5,8 @@ public class Player extends Object {
     Handler handler;
     Game game;
 
-    public Player(int x, int y, ID id, Handler handler, Game game) {
-        super(x, y, id);
+    public Player(int x, int y, ID id, Handler handler, Game game, SpriteSheet ss) {
+        super(x, y, id, ss);
         this.handler = handler;
         this.game = game;
     }

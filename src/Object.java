@@ -5,12 +5,14 @@ public abstract class Object {
     protected  int x, y;
     protected  float velX = 0, velY = 0;
     protected ID id;
+    protected SpriteSheet ss;
 
-    public Object(int x, int y, ID id){
+    public Object(int x, int y, ID id, SpriteSheet ss){
 
         this.x = x;
         this.y = y;
         this.id = id;
+        this.ss = ss;
 
     }
 
